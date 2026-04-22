@@ -1,0 +1,27 @@
+/* Empty state */
+.empty-cart {
+  padding: 60px 0;
+}
+
+/* Card */
+.cart-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.cart-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image */
+.cart-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Button */
+.cart-card .btn {
+  border-radius: 20px;
+}
