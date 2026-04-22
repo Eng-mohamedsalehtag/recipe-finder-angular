@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +10,10 @@ import { DataService } from '../services/data.service';
 export class MainComponent implements OnInit {
   searchTerm: string = '';
   selectedCategory: string = 'pizza';
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private cartService: CartService,
+  ) {}
   products: any[] = [];
 
   ngOnInit(): void {
@@ -25,5 +29,8 @@ export class MainComponent implements OnInit {
       this.products = response.data.recipes;
       console.log(this.products);
     });
+  }
+  onAdd(product: any) {
+    this.cartService.addToCart(product);
   }
 }
