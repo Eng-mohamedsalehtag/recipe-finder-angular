@@ -27,7 +27,14 @@ export class LoginComponent {
 
       this.authService.login(userData);
 
-      this.router.navigate(['/main']);
+      const redirectUrl = localStorage.getItem('redirectUrl');
+
+      if (redirectUrl) {
+        this.router.navigate([redirectUrl]);
+        localStorage.removeItem('redirectUrl');
+      } else {
+        this.router.navigate(['/']);
+      }
     }
   }
 }
