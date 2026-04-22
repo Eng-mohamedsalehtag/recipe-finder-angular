@@ -1,0 +1,94 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4 fw-bold">🍔 Products</h1>
+
+  <!-- Search -->
+  <div class="search-box shadow-sm p-3 mb-4 rounded">
+    <div class="d-flex gap-2">
+      <input
+        type="search"
+        class="form-control"
+        placeholder="Search for products..."
+        [(ngModel)]="searchTerm"
+      />
+
+      <button class="btn btn-primary" (click)="onSearch()">Search</button>
+    </div>
+
+    <!-- Quick buttons -->
+    <div class="mt-3 d-flex gap-2 flex-wrap">
+      <button
+        class="btn btn-sm btn-light border active"
+        [class.active]="selectedCategory === 'pizza'"
+        (click)="onSearch('pizza')"
+      >
+        🍕 Pizza
+      </button>
+      <button
+        class="btn btn-sm btn-light border"
+        [class.active]="selectedCategory === 'burger'"
+        (click)="onSearch('burger')"
+      >
+        🍔 Burger
+      </button>
+      <button
+        class="btn btn-sm btn-light border"
+        [class.active]="selectedCategory === 'pasta'"
+        (click)="onSearch('pasta')"
+      >
+        🍝 Pasta
+      </button>
+      <button
+        class="btn btn-sm btn-light border"
+        [class.active]="selectedCategory === 'salad'"
+        (click)="onSearch('salad')"
+      >
+        🥗 Salad
+      </button>
+      <button
+        class="btn btn-sm btn-light border"
+        [class.active]="selectedCategory === 'ice cream'"
+        (click)="onSearch('ice cream')"
+      >
+        🍨 Ice Cream
+      </button>
+      <button
+        class="btn btn-sm btn-light border"
+        [class.active]="selectedCategory === 'popcorn'"
+        (click)="onSearch('popcorn')"
+      >
+        🍿 Popcorn
+      </button>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="row g-4">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of products">
+      <div class="card product-card h-100 shadow-sm">
+        <img
+          [src]="product.image_url"
+          class="card-img-top"
+          [alt]="product.title"
+        />
+
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title fw-bold">
+            {{ product.title }}
+          </h6>
+
+          <p class="card-text text-muted small mb-3">
+            {{ product.publisher }}
+          </p>
+
+          <a
+            [routerLink]="['/product', product.id]"
+            class="btn btn-primary mt-auto w-100"
+          >
+            View Recipe
+          </a>
+          <a class="btn btn-outline-primary mt-2 w-100"> Add to Cart </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

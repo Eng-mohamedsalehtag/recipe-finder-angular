@@ -1,0 +1,23 @@
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #764ba2;
+}
+
+.btn-primary {
+  background-color: #764ba2;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #5a3791;
+}

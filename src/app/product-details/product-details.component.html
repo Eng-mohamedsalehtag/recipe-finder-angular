@@ -1,0 +1,34 @@
+<div class="container mt-5" *ngIf="product">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        [src]="product.image_url"
+        class="img-fluid rounded"
+        [alt]="product.title"
+      />
+    </div>
+    <div class="col-md-6">
+      <h1 class="mb-3">{{ product.title }}</h1>
+      <p class="text-muted mb-3">By {{ product.publisher }}</p>
+      <div class="mb-4">
+        <h4>Cooking Time</h4>
+        <p>{{ product.cooking_time }} minutes</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Servings</h4>
+        <p>{{ product.servings }}</p>
+      </div>
+
+      <a [href]="product.source_url" target="_blank" class="btn btn-primary">
+        View Full Recipe
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="!product">
+  <div class="text-center">
+    <p>Loading product details...</p>
+  </div>
+</div>
