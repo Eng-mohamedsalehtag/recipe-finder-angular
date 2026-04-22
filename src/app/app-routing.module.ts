@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './guards/auth.guard';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Home' },
@@ -14,6 +15,12 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     title: 'menu',
+    canActivate: [authGuard],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    title: 'Cart',
     canActivate: [authGuard],
   },
   { path: 'login', component: LoginComponent, title: 'Login' },
