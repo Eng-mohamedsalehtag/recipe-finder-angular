@@ -18,6 +18,11 @@ export class AuthService {
     this.isLoggedIn.next(true);
   }
 
+  register(userData: any) {
+    localStorage.setItem('user', JSON.stringify(userData));
+    this.isLoggedIn.next(true);
+  }
+
   logout() {
     localStorage.removeItem('user');
     this.isLoggedIn.next(false);

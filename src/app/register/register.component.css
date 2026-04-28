@@ -1,0 +1,19 @@
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  border-radius: 20px;
+  padding: 8px;
+}
